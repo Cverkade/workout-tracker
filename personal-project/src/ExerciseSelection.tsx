@@ -22,7 +22,7 @@ const ExerciseSelection = (props: exercisesProps) => {
     return <>
         <h2>Select Muscle Group</h2>
         <div className= "buttonContainer" >
-        {muscleGroups.map( muscleGroup => <Button variant="outline-success" onClick={clickHandler}>{muscleGroup}</Button>)}
+        {muscleGroups.map( muscleGroup => <Button variant="outline-success" className="selectMuscleBtn" onClick={clickHandler}>{muscleGroup}</Button>)}
         </div>
         <ExerciseList selectedMuscleGroup = {selectedMuscleGroup} exercises = {props.exercises}/>
     </>

@@ -17,8 +17,14 @@ const ExerciseList = (props: selectedExerciseProps) => {
         const exerciseToAdd = props.exercises.find(exercise => exercise.name.toLowerCase() === e.target.id)
         if (exerciseToAdd) {
             setWorkout([...workout, exerciseToAdd]);
+            const index = props.exercises.findIndex(exercise => exercise == exerciseToAdd)
+            props.exercises.splice(index,1);
+            console.log(index)
         }
+        e.target.remove;
+
         console.log(workout)
+        console.log(e.target)
     }
 
     return <>
