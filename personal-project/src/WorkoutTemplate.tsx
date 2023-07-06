@@ -2,6 +2,7 @@ import {exercise} from "./Exercise.tsx";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
 import {useState} from "react";
+import FindWorkout from "./FindWorkout.tsx";
 
 type workoutProps = {
     workout : exercise[]
@@ -18,20 +19,21 @@ type WorkoutTemplate = {
 const WorkoutTemplate = (props: workoutProps) => {
 
     const [workoutArr, setWorkoutArr] = useState<WorkoutTemplate[]>([]);
-    const storeWorkout = async () => {
+    const storeWorkout = async (e) => {
         const response = await axios.post("http://localhost:8080/exercises/", props.workout)
         const newWorkoutTemplate : WorkoutTemplate = {
             id : response.data,
             exercises : props.workout
         }
-        if (workoutArr) {
+        if (workoutArr && props.workout.length > 0) {
             setWorkoutArr([...workoutArr, newWorkoutTemplate]);
+            props.setExercises([...props.exercises, ...props.workout])
+            props.setWorkout([])
         }
     }
 
     const removeFromWorkout = (e) => {
         e.preventDefault();
-        console.log(e.target.textContent)
         const exercise = props.workout.find(exercise => exercise.name == e.target.textContent)
         const index = props.workout.findIndex(exercise => exercise.name == e.target.textContent)
         if (props.exercises && exercise) {
@@ -48,12 +50,14 @@ const WorkoutTemplate = (props: workoutProps) => {
         {props.workout.map(exercise =>
         <Button onClick = {removeFromWorkout}>{exercise.name}</Button>
             )}
+            <Button type="submit" onClick={storeWorkout}>Save</Button>
         </div>
-        <Button type="submit" onClick={storeWorkout}>Save</Button>
+
         <h3>My Workout</h3>
         <div className="workoutContainer">
         {workoutArr.map((workout) => (
             <div className="savedWorkout">
+                <h5>Workout Template: {workout.id}</h5>
                 {workout.exercises.map((exercise) => (
                     <p>{exercise.name}</p>
                 ))}
@@ -61,6 +65,7 @@ const WorkoutTemplate = (props: workoutProps) => {
             </div>
         ))}
         </div>
+        <FindWorkout/>
     </>
 }
 
