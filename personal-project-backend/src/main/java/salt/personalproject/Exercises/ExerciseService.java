@@ -23,7 +23,7 @@ public class ExerciseService {
     public List<ExerciseDTO> fetchData() throws IOException, InterruptedException {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://exercisedb.p.rapidapi.com/exercises/"))
-                .header("X-RapidAPI-Key", "6ed241ab7amsha7e1db3d638ce13p1efb12jsnb050541c1782")
+                .header("X-RapidAPI-Key", "2d60401400msh161bb0c91248882p1e0d2ajsnb5fe13357e18")
                 .header("X-RapidAPI-Host", "exercisedb.p.rapidapi.com")
                 .method("GET", HttpRequest.BodyPublishers.noBody())
                 .build();

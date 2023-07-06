@@ -9,6 +9,8 @@ type workoutProps = {
     setWorkout: (arg : exercise[]) => void
     exercises : exercise[]
     setExercises: (arg : exercise[]) => void
+    saveButton : boolean
+    setSaveButton: (arg : boolean) => void
 }
 
 type WorkoutTemplate = {
@@ -20,16 +22,21 @@ const WorkoutTemplate = (props: workoutProps) => {
 
     const [workoutArr, setWorkoutArr] = useState<WorkoutTemplate[]>([]);
     const storeWorkout = async (e) => {
-        const response = await axios.post("http://localhost:8080/exercises/", props.workout)
-        const newWorkoutTemplate : WorkoutTemplate = {
-            id : response.data,
-            exercises : props.workout
-        }
-        if (workoutArr && props.workout.length > 0) {
+
+        if (props.workout.length > 0) {
+            const response = await axios.post("http://localhost:8080/exercises/", props.workout)
+            const newWorkoutTemplate: WorkoutTemplate = {
+                id: response.data,
+                exercises: props.workout
+            }
+        console.log("length: " + props.workout.length)
+        if (workoutArr) {
             setWorkoutArr([...workoutArr, newWorkoutTemplate]);
             props.setExercises([...props.exercises, ...props.workout])
             props.setWorkout([])
+            props.setSaveButton(false)
         }
+    }
     }
 
     const removeFromWorkout = (e) => {
@@ -45,19 +52,21 @@ const WorkoutTemplate = (props: workoutProps) => {
 
 
     return <>
-        <h3>My Exercises:</h3>
+    {props.saveButton &&(
         <div className="workoutProgramList">
+        <h3>Selected Exercises:</h3>
         {props.workout.map(exercise =>
         <Button onClick = {removeFromWorkout}>{exercise.name}</Button>
             )}
-            <Button type="submit" onClick={storeWorkout}>Save</Button>
-        </div>
-
+            <div>
+                <h2>Step 3: Save! </h2><Button type="submit" className={"workoutSubmitBtn"} onClick={storeWorkout}>Save</Button>
+            </div>
+        </div>)}
         <h3>My Workout</h3>
         <div className="workoutContainer">
         {workoutArr.map((workout) => (
             <div className="savedWorkout">
-                <h5>Workout Template: {workout.id}</h5>
+                <h5>Workout ID: {workout.id}</h5>
                 {workout.exercises.map((exercise) => (
                     <p>{exercise.name}</p>
                 ))}

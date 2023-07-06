@@ -11,6 +11,8 @@ type selectedExerciseProps = {
 
 const ExerciseList = (props: selectedExerciseProps) => {
     const [workout, setWorkout] = useState<exercise[]>([])
+    const [saveButton, setSaveButton]= useState<boolean>(false)
+
 
     const addToWorkout = (e) => {
         e.preventDefault();
@@ -19,19 +21,20 @@ const ExerciseList = (props: selectedExerciseProps) => {
             setWorkout([...workout, exerciseToAdd]);
             const index = props.exercises.findIndex(exercise => exercise == exerciseToAdd)
             props.exercises.splice(index,1);
+            setSaveButton(true)
         }
         e.target.remove;
     }
 
     return <>
-        <h2>Select Exercises</h2>
+        <h2>Step 2: Select Exercises</h2>
         <section className={"exercisesListContainer"}>
         {props.exercises
                 .filter(exercise => exercise.bodyPart == props.selectedMuscleGroup.toLowerCase())
-                .map(exercise => <Button variant="info" id = {exercise.name.toLowerCase()} onClick = {addToWorkout}>{exercise.name} +</Button>)
+                .map(exercise => <Button id={exercise.name.toLowerCase()} onClick = {addToWorkout}>{exercise.name} +</Button>)
         }
         </section>
-        <WorkoutTemplate workout = {workout} setWorkout = {setWorkout} exercises = {props.exercises} setExercises = {props.setExercises}/>
+        <WorkoutTemplate saveButton = {saveButton} setSaveButton = {setSaveButton} workout = {workout} setWorkout = {setWorkout} exercises = {props.exercises} setExercises = {props.setExercises}/>
     </>
 }
 

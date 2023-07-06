@@ -5,10 +5,23 @@
   url('assets/WEB/Lovelo-Black.woff2') format('woff2'), url('assets/WEB/Lovelo-Black.woff') format('woff')
 }
 
+@font-face {
+  font-family: Lovelo LineLight;
+  src: url('assets/WEB/Lovelo-LineLight.eot');
+  src: url('assets/WEB/Lovelo-LineLight.eot?#iefix') format('embedded-opentype'),
+  url('assets/WEB/Lovelo-LineLight.woff2') format('woff2'), url('assets/WEB/Lovelo-LineLight.woff') format('woff')
+}
+
+@font-face {
+  font-family: Lovelo LineBold;
+  src: url('assets/WEB/Lovelo-LineBold.eot');
+  src: url('assets/WEB/Lovelo-LineBold.eot?#iefix') format('embedded-opentype'),
+  url('assets/WEB/Lovelo-LineBold.woff2') format('woff2'), url('assets/WEB/Lovelo-LineBold.woff') format('woff')
+}
+
 
 #root {
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
   color: rgb(61	64	68);
 }
@@ -18,42 +31,25 @@
 }
 
 html, #root {
-  background-color: rgb(95 203 196);
+  background-color: #faf9f0;
   font-family: Lovelo, sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+header {
+  display: grid;
+  align-content: center;
+  margin-top: 0;
+  padding: 0;
+  font-family: "Lovelo LineBold", sans-serif;
+  font-size: 30px;
+  justify-content: center;
+  height: 15vh;
+  background-color: black;
+  color: white;
+  margin-bottom: 5vh;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+header h3 {
+  font-family: "Lovelo LineLight", sans-serif;
 }

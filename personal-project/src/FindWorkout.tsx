@@ -16,14 +16,13 @@ const findWorkout = () => {
     }
 
     return <>
-    <p>Hello</p>
         <form onSubmit={findWorkoutById}>
             <label htmlFor="fname">Search for a workout by ID</label><br/>
             <input type="text" id="workoutId" name="fname"/><br/>
                     <input type="submit" value="Submit"/>
         </form>
-
-        {savedWorkout.map(exercise => <p>{exercise.name}</p>)}
+        <br/>
+        {savedWorkout.map(exercise => <li>{exercise.name}</li>)}
     </>
 }
 

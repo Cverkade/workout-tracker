@@ -20,6 +20,11 @@ function App() {
 
     return (
         <>
+
+            <header>
+                <h1>OutWork</h1>
+                <h4>The Workout App</h4>
+            </header>
             <div className="main">
                 <ExerciseSelection exercises = {exercises} setExercises = {setExercises}/>
             </div>
