@@ -27,7 +27,6 @@ const WorkoutTemplate = (props: workoutProps) => {
         if (workoutArr) {
             setWorkoutArr([...workoutArr, newWorkoutTemplate]);
         }
-        console.log(workoutArr)
     }
 
     const removeFromWorkout = (e) => {
@@ -51,6 +50,17 @@ const WorkoutTemplate = (props: workoutProps) => {
             )}
         </div>
         <Button type="submit" onClick={storeWorkout}>Save</Button>
+        <h3>My Workout</h3>
+        <div className="workoutContainer">
+        {workoutArr.map((workout) => (
+            <div className="savedWorkout">
+                {workout.exercises.map((exercise) => (
+                    <p>{exercise.name}</p>
+                ))}
+                <br />
+            </div>
+        ))}
+        </div>
     </>
 }
 

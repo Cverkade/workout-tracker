@@ -5,7 +5,6 @@ import {exercise} from './Exercise.tsx'
 import ExerciseSelection from "./ExerciseSelection.tsx";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 function App() {
     const [exercises, setExercises] = useState<exercise[]>([])
 
@@ -16,7 +15,6 @@ function App() {
     }, [])
     const fetchData = async () => {
         const response = await axios.get(`http://localhost:8080/exercises/`)
-        console.log(response.data);
         return response.data;
     }
 

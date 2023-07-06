@@ -1,8 +1,25 @@
+@font-face {
+  font-family: Lovelo;
+  src: url('assets/WEB/Lovelo-Black.eot');
+  src: url('assets/WEB/Lovelo-Black.eot?#iefix') format('embedded-opentype'),
+  url('assets/WEB/Lovelo-Black.woff2') format('woff2'), url('assets/WEB/Lovelo-Black.woff') format('woff')
+}
+
+
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  color: rgb(61	64	68);
+}
+
+.whiteText {
+  color: white;
+}
+
+html, #root {
+  background-color: rgb(95 203 196);
+  font-family: Lovelo, sans-serif;
 }
 
 .logo {

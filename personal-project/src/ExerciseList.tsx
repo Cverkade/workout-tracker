@@ -3,7 +3,6 @@ import Button from "react-bootstrap/Button";
 import {useState} from "react";
 import WorkoutTemplate from "./WorkoutTemplate.tsx";
 
-
 type selectedExerciseProps = {
     selectedMuscleGroup : string
     exercises : exercise[]
@@ -20,12 +19,8 @@ const ExerciseList = (props: selectedExerciseProps) => {
             setWorkout([...workout, exerciseToAdd]);
             const index = props.exercises.findIndex(exercise => exercise == exerciseToAdd)
             props.exercises.splice(index,1);
-            console.log(index)
         }
         e.target.remove;
-
-        console.log(workout)
-        console.log(e.target)
     }
 
     return <>
@@ -33,7 +28,7 @@ const ExerciseList = (props: selectedExerciseProps) => {
         <section className={"exercisesListContainer"}>
         {props.exercises
                 .filter(exercise => exercise.bodyPart == props.selectedMuscleGroup.toLowerCase())
-                .map(exercise => <Button variant="outline-info" id = {exercise.name.toLowerCase()} onClick = {addToWorkout}>{exercise.name} +</Button>)
+                .map(exercise => <Button variant="info" id = {exercise.name.toLowerCase()} onClick = {addToWorkout}>{exercise.name} +</Button>)
         }
         </section>
         <WorkoutTemplate workout = {workout} setWorkout = {setWorkout} exercises = {props.exercises} setExercises = {props.setExercises}/>

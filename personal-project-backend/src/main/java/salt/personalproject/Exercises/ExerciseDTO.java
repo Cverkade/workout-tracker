@@ -9,10 +9,9 @@ public class ExerciseDTO {
     @JsonProperty
     private String name;
     @JsonProperty
-    private String muscle;
+    private String bodyPart;
+    @JsonProperty
+    private String target;
     @JsonProperty
     private String equipment;
-    @JsonProperty
-    private String difficulty;
-
 }

@@ -16,14 +16,13 @@ const ExerciseSelection = (props: exercisesProps) => {
 
     const clickHandler = (e) => {
         e.preventDefault();
-        console.log(e.target.textContent)
         setSelectedMuscleGroup(e.target.textContent);
     }
 
     return <>
         <h2>Select Muscle Group</h2>
         <div className= "buttonContainer" >
-        {muscleGroups.map( muscleGroup => <Button variant="outline-success" className="selectMuscleBtn" onClick={clickHandler}>{muscleGroup}</Button>)}
+        {muscleGroups.map( muscleGroup => <Button variant="success" className="selectMuscleBtn" onClick={clickHandler}>{muscleGroup}</Button>)}
         </div>
         <ExerciseList selectedMuscleGroup = {selectedMuscleGroup} exercises = {props.exercises} setExercises = {props.setExercises}/>
     </>

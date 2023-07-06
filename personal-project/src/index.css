@@ -23,9 +23,6 @@ h1 {
   line-height: 1.1;
 }
 
-.selectMuscleBtn:active {
-  background-color: red;
-}
 
 .exercisesListContainer {
   display: grid;
@@ -33,6 +30,18 @@ h1 {
 }
 
 .exercisesListContainer button {
-  padding: 10px;
+  background-color: transparent;
+  border: rgb(61	64	68) 0.5px solid;
+  margin: 10px;
 }
 
+.savedWorkout {
+
+  border: rgb(61	64	68) 0.5px solid;
+
+}
+
+.workoutContainer {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+}
