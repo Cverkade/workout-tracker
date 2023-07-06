@@ -7,7 +7,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
-    const [count, setCount] = useState(0)
     const [exercises, setExercises] = useState<exercise[]>([])
 
 
@@ -23,8 +22,8 @@ function App() {
 
     return (
         <>
-            <div>
-                <ExerciseSelection exercises = {exercises}/>
+            <div className="main">
+                <ExerciseSelection exercises = {exercises} setExercises = {setExercises}/>
             </div>
         </>
     )

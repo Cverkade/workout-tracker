@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 
 type exercisesProps = {
     exercises : exercise[]
+    setExercises: (arg : exercise[]) => void
 }
 
 const ExerciseSelection = (props: exercisesProps) => {
@@ -24,7 +25,7 @@ const ExerciseSelection = (props: exercisesProps) => {
         <div className= "buttonContainer" >
         {muscleGroups.map( muscleGroup => <Button variant="outline-success" className="selectMuscleBtn" onClick={clickHandler}>{muscleGroup}</Button>)}
         </div>
-        <ExerciseList selectedMuscleGroup = {selectedMuscleGroup} exercises = {props.exercises}/>
+        <ExerciseList selectedMuscleGroup = {selectedMuscleGroup} exercises = {props.exercises} setExercises = {props.setExercises}/>
     </>
 }
 

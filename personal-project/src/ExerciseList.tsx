@@ -7,6 +7,7 @@ import WorkoutTemplate from "./WorkoutTemplate.tsx";
 type selectedExerciseProps = {
     selectedMuscleGroup : string
     exercises : exercise[]
+    setExercises: (arg : exercise[]) => void
 }
 
 const ExerciseList = (props: selectedExerciseProps) => {
@@ -35,7 +36,7 @@ const ExerciseList = (props: selectedExerciseProps) => {
                 .map(exercise => <Button variant="outline-info" id = {exercise.name.toLowerCase()} onClick = {addToWorkout}>{exercise.name} +</Button>)
         }
         </section>
-        <WorkoutTemplate workout = {workout}/>
+        <WorkoutTemplate workout = {workout} setWorkout = {setWorkout} exercises = {props.exercises} setExercises = {props.setExercises}/>
     </>
 }
 
