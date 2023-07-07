@@ -5,6 +5,7 @@ import WorkoutTemplate from "./WorkoutTemplate.tsx";
 
 type selectedExerciseProps = {
     selectedMuscleGroup : string
+    selectedEquipment : string
     exercises : exercise[]
     setExercises: (arg : exercise[]) => void
 }
@@ -29,11 +30,12 @@ const ExerciseList = (props: selectedExerciseProps) => {
     }
 
     return <>
-        <h2>Step 2: Select Exercises</h2>
+        <h2>Step 3: Select Exercises</h2>
         <section className={"exercisesListContainer"}>
         {props.exercises
-                .filter(exercise => exercise.bodyPart == props.selectedMuscleGroup.toLowerCase())
-                .map(exercise => <Button id={exercise.name.toLowerCase()} onClick = {addToWorkout}>{exercise.name} +</Button>)
+            .filter(exercise => exercise.bodyPart == props.selectedMuscleGroup.toLowerCase())
+            .filter(exercise => exercise.equipment == props.selectedEquipment)
+            .map(exercise => <Button id={exercise.name.toLowerCase()} onClick = {addToWorkout}>{exercise.name} +</Button>)
         }
         </section>
         {showStoredWorkout && (<WorkoutTemplate saveButton = {saveButton} setSaveButton = {setSaveButton} workout = {workout} setWorkout = {setWorkout} exercises = {props.exercises} setExercises = {props.setExercises}/>)}

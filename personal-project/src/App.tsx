@@ -10,7 +10,7 @@ function App() {
 
 
     useEffect(() => {
-        fetchData().then(data => setExercises(data.filter(data => data.equipment == "barbell")))
+        fetchData().then(data => setExercises(data))
 
     }, [])
     const fetchData = async () => {

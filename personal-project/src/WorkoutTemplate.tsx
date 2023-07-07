@@ -54,15 +54,17 @@ const WorkoutTemplate = (props: workoutProps) => {
     return <>
     {props.saveButton &&(
         <div className="workoutProgramList">
-        <h3>Selected Exercises:</h3>
+        <h2>Selected Exercises:</h2>
+            <div className = "savedWorkoutBtns">
         {props.workout.map(exercise =>
         <Button onClick = {removeFromWorkout}>{exercise.name}</Button>
             )}
+            </div>
             <div>
-                <h2>Step 3: Save! </h2><Button type="submit" className={"workoutSubmitBtn"} onClick={storeWorkout}>Save</Button>
+                <h4>Step 4: Save! </h4><Button type="submit" className={"workoutSubmitBtn"} onClick={storeWorkout}>Save</Button>
             </div>
         </div>)}
-        <h3>My Workout</h3>
+        <h2>My Workout</h2>
         <div className="workoutContainer">
         {workoutArr.map((workout) => (
             <div className="savedWorkout">
@@ -77,6 +79,5 @@ const WorkoutTemplate = (props: workoutProps) => {
         <FindWorkout/>
     </>
 }
-
 
 export default WorkoutTemplate
