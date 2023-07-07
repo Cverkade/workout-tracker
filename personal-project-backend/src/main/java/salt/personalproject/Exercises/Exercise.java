@@ -15,6 +15,18 @@ public class Exercise {
         private String bodyPart;
         private String target;
         private String equipment;
+        private String gifUrl;
+        public String getGifUrl() {
+                return gifUrl;
+        }
+
+        public Exercise setGifUrl(String gifUrl) {
+                this.gifUrl = gifUrl;
+                return this;
+        }
+
+
+
 
         public Exercise(Long id, String name, String bodyPart, String target, String equipment) {
                 this.id = id;

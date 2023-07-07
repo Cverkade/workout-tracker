@@ -24,16 +24,16 @@ const findWorkout = () => {
     }
     return <>
         <form onSubmit={findWorkoutById}>
-            <label htmlFor="fname">Search for a workout by ID</label><br/>
+            <label htmlFor="fname"><h4>Search for a workout by ID</h4></label><br/>
             <input ref={myRef} type="search" id="workoutId"/><br/>
-                    <input type="submit" value="Submit"/>
+                    <input type="submit" value="Search"/>
         </form>
         <br/>
         <div className="workoutContainer">
         {workoutFound && (
             <div className={"savedWorkout"}>
                 <h5>Saved workout {myRef.current.value}</h5>
-                {savedWorkout.map(exercise => <li>{exercise.name}</li>)}
+                {savedWorkout.map(exercise => <li>{exercise.name} <a href={exercise.gifUrl} target="_blank">GIF</a></li>)}
             </div>
         )}
         </div>

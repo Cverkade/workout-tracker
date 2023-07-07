@@ -19,6 +19,7 @@ function App() {
     }, [])
     const fetchData = async () => {
         const response = await axios.get(`http://localhost:8080/exercises/`)
+        console.log(response.data)
         return response.data;
     }
 

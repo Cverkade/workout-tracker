@@ -14,4 +14,6 @@ public class ExerciseDTO {
     private String target;
     @JsonProperty
     private String equipment;
+    @JsonProperty
+    private String gifUrl;
 }

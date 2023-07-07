@@ -3,4 +3,5 @@ export type exercise = {
     bodyPart : string
     target : string
     equipment : string
+    gifUrl : string;
 }

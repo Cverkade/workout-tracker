@@ -35,7 +35,6 @@ public class ExerciseController {
     @ResponseBody
     @PostMapping("/")
     String saveWorkout(@RequestBody List<Exercise> exercises) throws IOException, InterruptedException {
-        System.out.println("responseeeee" + exercises);
         Workout workout = new Workout();
         for (Exercise exercise: exercises) {
             Exercise exercise1 = new Exercise();
@@ -43,6 +42,7 @@ public class ExerciseController {
             exercise1.setName(exercise.getName());
             exercise1.setEquipment(exercise.getEquipment());
             exercise1.setTarget(exercise.getTarget());
+            exercise1.setGifUrl(exercise.getGifUrl());
             exerciseService.saveExercise(exercise1);
         }
         workout.setExercises(exercises);

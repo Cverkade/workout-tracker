@@ -33,12 +33,14 @@ const WorkoutTemplate = (props: workoutProps) => {
             props.setWorkout([])
             props.setSaveButton(false)
         }
+        } else {
+            alert("Please select at least 1 exercise")
         }
     }
     const removeFromWorkout = (e : any) => {
         e.preventDefault();
-        const exercise = props.workout.find(exercise => exercise.name == e.target.textContent)
-        const index = props.workout.findIndex(exercise => exercise.name == e.target.textContent)
+        const exercise = props.workout.find(exercise => exercise.name == e.target.id)
+        const index = props.workout.findIndex(exercise => exercise.name == e.target.id)
         if (props.exercises && exercise) {
             props.setExercises([...props.exercises, exercise])
         }
@@ -46,17 +48,16 @@ const WorkoutTemplate = (props: workoutProps) => {
         props.setWorkout([...props.workout])
     }
 
-
     return <>
     {props.saveButton &&(
         <div className="workoutProgramList">
         <h2>Selected Exercises:</h2>
             <div className = "savedWorkoutBtns">
         {props.workout.map(exercise =>
-        <Button onClick = {removeFromWorkout}>{exercise.name}</Button>
+        <Button id={exercise.name.toLowerCase()} onClick = {removeFromWorkout}>{exercise.name} -</Button>
             )}
             </div>
-                <Button type="submit" className={"workoutSubmitBtn"} onClick={storeWorkout}>Save</Button>
+                <Button type="submit" className={"workoutSubmitBtn"} onClick={storeWorkout}>Save as Workout</Button>
         </div>)}
         <h2>My Workouts</h2>
         <div className="workoutContainer">
@@ -64,7 +65,7 @@ const WorkoutTemplate = (props: workoutProps) => {
             <div className="savedWorkout">
                 <h5>Workout ID: {workout.id}</h5>
                 {workout.exercises.map((exercise) => (
-                    <li>{exercise.name}</li>
+                    <li>{exercise.name} <a href={exercise.gifUrl} target="_blank">GIF</a></li>
                 ))}
                 <br />
             </div>

@@ -46,14 +46,16 @@ margin: 0 2vw;
   display: grid;
   grid-template-columns: auto auto auto auto auto auto;
   margin-bottom: 5vh;
+  justify-content: center;
 }
 
 .exercisesListContainer button {
   background-color: #27456a;
   color: white;
-  border: rgb(61	64	68) 0.5px solid;
-  margin: 10px;
-  padding: 10px;
+  font-size: 14px;
+  border: rgb(61 64	68) 0.5px solid;
+  margin: 4px;
+  padding: 5px;
 }
 
 .exercisesListContainer button:hover {
@@ -75,7 +77,9 @@ margin: 0 2vw;
 .savedWorkoutBtns button{
   width: 30vw;
   background-color: #27456a;
-  margin: 10px;
+  font-size: 14px;
+  margin: 4px;
+  padding: 5px;
 }
 
 .savedWorkout {
@@ -88,6 +92,7 @@ margin: 0 2vw;
   display: grid;
   justify-content: center;
   grid-template-columns: auto auto auto auto;
+  margin-bottom: 8vh;
 }
 
 .savedWorkout h5{
@@ -108,4 +113,8 @@ margin: 0 2vw;
 .workoutSubmitBtn {
   background-color: green;
   width: 20vw;
+}
+
+.workoutSubmitBtn:hover {
+  background-color: white;
 }
