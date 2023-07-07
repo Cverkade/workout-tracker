@@ -15,11 +15,12 @@ const ExerciseSelection = (props: exercisesProps) => {
     const [selectedMuscleGroup, setSelectedMuscleGroup] = useState<string>('')
     const [selectedEquipment, setSelectedEquipment] = useState<string>('')
     const [showSelectMenu, setShowSelectMenu]= useState<boolean>(false)
+    const [showEquipmentMenu, setShowEquipmentMenu]= useState<boolean>(false)
 
     const grpClickHandler = (e) => {
         e.preventDefault();
         setSelectedMuscleGroup(e.target.textContent);
-
+        setShowEquipmentMenu(true)
         const buttons = e.target.parentNode.querySelectorAll(".selectMuscleBtn")
         buttons.forEach((button) => {
             button.style = "background-color: #faf9f0; color: black";
@@ -44,10 +45,10 @@ const ExerciseSelection = (props: exercisesProps) => {
         <h2>Step 1: Select Muscle Group</h2>
         {muscleGroups.map( muscleGroup => <Button className="selectMuscleBtn" onClick={grpClickHandler}>{muscleGroup}</Button>)}
         </div>
-        <div className= "buttonContainer" >
+        {showEquipmentMenu && (<div className= "buttonContainer" >
             <h2>Step 2: Select Equipment</h2>
             {equipment.map( equipment => <Button className="selectEquipmentBtn" onClick={equipmentClickHandler}>{equipment}</Button>)}
-        </div>
+        </div>)}
         {showSelectMenu && (<ExerciseList selectedEquipment = {selectedEquipment} selectedMuscleGroup = {selectedMuscleGroup} exercises = {props.exercises} setExercises = {props.setExercises}/>)}
 
     </>

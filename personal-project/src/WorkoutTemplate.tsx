@@ -2,7 +2,6 @@ import {exercise} from "./Exercise.tsx";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
 import {useState} from "react";
-import FindWorkout from "./FindWorkout.tsx";
 
 type workoutProps = {
     workout : exercise[]
@@ -21,25 +20,22 @@ type WorkoutTemplate = {
 const WorkoutTemplate = (props: workoutProps) => {
 
     const [workoutArr, setWorkoutArr] = useState<WorkoutTemplate[]>([]);
-    const storeWorkout = async (e) => {
-
+    const storeWorkout = async () => {
         if (props.workout.length > 0) {
             const response = await axios.post("http://localhost:8080/exercises/", props.workout)
             const newWorkoutTemplate: WorkoutTemplate = {
                 id: response.data,
                 exercises: props.workout
             }
-        console.log("length: " + props.workout.length)
         if (workoutArr) {
             setWorkoutArr([...workoutArr, newWorkoutTemplate]);
             props.setExercises([...props.exercises, ...props.workout])
             props.setWorkout([])
             props.setSaveButton(false)
         }
+        }
     }
-    }
-
-    const removeFromWorkout = (e) => {
+    const removeFromWorkout = (e : any) => {
         e.preventDefault();
         const exercise = props.workout.find(exercise => exercise.name == e.target.textContent)
         const index = props.workout.findIndex(exercise => exercise.name == e.target.textContent)
@@ -60,23 +56,21 @@ const WorkoutTemplate = (props: workoutProps) => {
         <Button onClick = {removeFromWorkout}>{exercise.name}</Button>
             )}
             </div>
-            <div>
-                <h4>Step 4: Save! </h4><Button type="submit" className={"workoutSubmitBtn"} onClick={storeWorkout}>Save</Button>
-            </div>
+                <Button type="submit" className={"workoutSubmitBtn"} onClick={storeWorkout}>Save</Button>
         </div>)}
-        <h2>My Workout</h2>
+        <h2>My Workouts</h2>
         <div className="workoutContainer">
         {workoutArr.map((workout) => (
             <div className="savedWorkout">
                 <h5>Workout ID: {workout.id}</h5>
                 {workout.exercises.map((exercise) => (
-                    <p>{exercise.name}</p>
+                    <li>{exercise.name}</li>
                 ))}
                 <br />
             </div>
         ))}
         </div>
-        <FindWorkout/>
+
     </>
 }
 

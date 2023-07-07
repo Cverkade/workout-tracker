@@ -40,11 +40,10 @@ header {
   display: grid;
   align-content: center;
   margin-top: 0;
-  padding: 0;
   font-family: "Lovelo LineBold", sans-serif;
   font-size: 30px;
   justify-content: center;
-  height: 15vh;
+  height: 20vh;
   background-color: black;
   color: white;
   margin-bottom: 5vh;

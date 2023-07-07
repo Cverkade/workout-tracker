@@ -14,6 +14,19 @@ h1 {
   line-height: 1.1;
 }
 
+button {
+  background-color: #faf9f0 ;
+  margin: 10px;
+  border: #27456a 1px solid;
+  font-size: 16px;
+  padding: 10px 30px;
+}
+
+.main button:hover {
+  background-color: #27456a;
+  color: white;
+}
+
 .buttonContainer {
   display: block;
   margin-bottom: 5vh;
@@ -23,17 +36,10 @@ h1 {
 margin: 0 2vw;
 }
 .buttonContainer button {
-  margin: 10px 10px;
   background-color: #faf9f0 ;
   color: black;
   border: #27456a 1px solid;
-  font-size: 18px;
-  padding: 10px 30px;
-}
 
-.buttonContainer button:hover {
-  background-color: #27456a;
-  color: white;
 }
 
 .exercisesListContainer {
@@ -50,24 +56,56 @@ margin: 0 2vw;
   padding: 10px;
 }
 
+.exercisesListContainer button:hover {
+  background-color: #7bc57b;
+  color: #27456a;
+}
+
 .savedWorkoutBtns {
   display: grid;
   justify-items: center;
+  grid-template-columns: auto auto auto;
+  justify-content: center;
 }
-
+.savedWorkoutBtns button:hover {
+  background-color: indianred;
+  color: #27456a;
+}
 
 .savedWorkoutBtns button{
   width: 30vw;
-  padding: 1vw;
-  margin: 10px 0;
   background-color: #27456a;
+  margin: 10px;
 }
 
 .savedWorkout {
-  border: rgb(61 64	68) 0.5px solid;
+  border: rgb(61 64	68) 3px solid;
+  margin: 0 3px;
+  width: 25vw;
 }
 
 .workoutContainer {
   display: grid;
-  grid-template-columns: auto auto auto auto auto auto;
+  justify-content: center;
+  grid-template-columns: auto auto auto auto;
+}
+
+.savedWorkout h5{
+  color: white;
+  background-color: black;
+}
+
+.taskSelection button{
+  padding: 14px;
+  margin: 10px;
+  border-radius: 6px;
+}
+
+.taskSelection{
+  padding-bottom: 2vw;
+}
+
+.workoutSubmitBtn {
+  background-color: green;
+  width: 20vw;
 }

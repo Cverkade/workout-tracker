@@ -16,7 +16,7 @@ const ExerciseList = (props: selectedExerciseProps) => {
     const [showStoredWorkout, setShowStoredWorkout]= useState<boolean>(false)
 
 
-    const addToWorkout = (e) => {
+    const addToWorkout = (e : any) => {
         e.preventDefault();
         const exerciseToAdd = props.exercises.find(exercise => exercise.name.toLowerCase() === e.target.id)
         if (exerciseToAdd) {
