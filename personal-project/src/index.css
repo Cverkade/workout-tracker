@@ -19,6 +19,9 @@ h1 {
   margin-bottom: 5vh;
 }
 
+.main {
+margin: 0 2vw;
+}
 .buttonContainer button {
   margin: 10px 10px;
   background-color: #faf9f0 ;

@@ -12,6 +12,7 @@ type selectedExerciseProps = {
 const ExerciseList = (props: selectedExerciseProps) => {
     const [workout, setWorkout] = useState<exercise[]>([])
     const [saveButton, setSaveButton]= useState<boolean>(false)
+    const [showStoredWorkout, setShowStoredWorkout]= useState<boolean>(false)
 
 
     const addToWorkout = (e) => {
@@ -23,6 +24,7 @@ const ExerciseList = (props: selectedExerciseProps) => {
             props.exercises.splice(index,1);
             setSaveButton(true)
         }
+        setShowStoredWorkout(true)
         e.target.remove;
     }
 
@@ -34,7 +36,7 @@ const ExerciseList = (props: selectedExerciseProps) => {
                 .map(exercise => <Button id={exercise.name.toLowerCase()} onClick = {addToWorkout}>{exercise.name} +</Button>)
         }
         </section>
-        <WorkoutTemplate saveButton = {saveButton} setSaveButton = {setSaveButton} workout = {workout} setWorkout = {setWorkout} exercises = {props.exercises} setExercises = {props.setExercises}/>
+        {showStoredWorkout && (<WorkoutTemplate saveButton = {saveButton} setSaveButton = {setSaveButton} workout = {workout} setWorkout = {setWorkout} exercises = {props.exercises} setExercises = {props.setExercises}/>)}
     </>
 }
 

@@ -13,10 +13,12 @@ const ExerciseSelection = (props: exercisesProps) => {
 
     const muscleGroups = ["Back", "Chest", "Lower legs", "Shoulders", "Upper arms", "Upper legs", "Waist"]
     const [selectedMuscleGroup, setSelectedMuscleGroup] = useState<string>('')
+    const [showSelectMenu, setShowSelectMenu]= useState<boolean>(false)
 
     const clickHandler = (e) => {
         e.preventDefault();
         setSelectedMuscleGroup(e.target.textContent);
+        setShowSelectMenu(true)
     }
 
     return <>
@@ -24,7 +26,7 @@ const ExerciseSelection = (props: exercisesProps) => {
         <h2>Step 1: Select Muscle Group</h2>
         {muscleGroups.map( muscleGroup => <Button className="selectMuscleBtn" onClick={clickHandler}>{muscleGroup}</Button>)}
         </div>
-        <ExerciseList selectedMuscleGroup = {selectedMuscleGroup} exercises = {props.exercises} setExercises = {props.setExercises}/>
+        {showSelectMenu && (<ExerciseList selectedMuscleGroup = {selectedMuscleGroup} exercises = {props.exercises} setExercises = {props.setExercises}/>)}
     </>
 }
 
