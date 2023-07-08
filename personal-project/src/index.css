@@ -85,13 +85,13 @@ margin: 0 2vw;
 .savedWorkout {
   border: rgb(61 64	68) 3px solid;
   margin: 0 3px;
-  width: 25vw;
+  width: 30vw;
 }
 
 .workoutContainer {
   display: grid;
   justify-content: center;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto;
   margin-bottom: 8vh;
 }
 
